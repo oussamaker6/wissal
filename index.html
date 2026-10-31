@@ -66,12 +66,13 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* زينة هيلو كيتي والورود */
+        /* زينة الورود */
         .decorations {
             font-size: 24px;
             margin-bottom: 5px;
         }
 
+        /* صورة هيلو كيتي المحلية الموحدة لكل الصفحات */
         .kitty-img {
             width: 130px;
             height: 130px;
@@ -171,7 +172,7 @@
             40%, 80% { transform: translateX(8px); }
         }
 
-        /* الرسالة والتهنئة في الصفحة الأخيرة */
+        /* بطاقة التهنئة في الصفحة الأخيرة */
         .wishes-card {
             background: #fff;
             border: 2px dashed var(--pink-light);
@@ -197,7 +198,8 @@
         <!-- الصفحة الأولى -->
         <div id="page1" class="page active">
             <div class="decorations">🌸 🎀 🌹 🎀 🌸</div>
-            <img src="https://images.vexels.com/media/users/3/242277/raw/2816507421ce8e3f9a7442ca718b5329-hello-kitty-cute-face-graphic.jpg" alt="Hello Kitty" class="kitty-img" onerror="this.src='https://i.ibb.co/6P6Xg4V/hello-kitty.png'">
+            <!-- استبدل "kitty.png" باسم صورتك المحلية -->
+            <img src="kitty.png" alt="Hello Kitty" class="kitty-img">
             <h1 class="arabic-title">جميلة نوفمبر</h1>
             <p style="color: #666; font-size: 15px;">عالم صغير من الورد والأحلام 💗</p>
             <button class="btn-3d" onclick="goToPage(2)">
@@ -208,7 +210,7 @@
         <!-- الصفحة الثانية: اللغز -->
         <div id="page2" class="page">
             <div class="decorations">🎀 ❓ 🎀</div>
-            <img src="https://images.vexels.com/media/users/3/242277/raw/2816507421ce8e3f9a7442ca718b5329-hello-kitty-cute-face-graphic.jpg" alt="Hello Kitty Question" class="kitty-img">
+            <img src="kitty.png" alt="Hello Kitty Question" class="kitty-img">
             <div class="puzzle-box" id="puzzleContainer">
                 <p class="question-text">واش هيا الكلمة لي معروف عليا نقولهالك ؟ 🎀</p>
                 <input type="text" id="answerInput" class="puzzle-input" placeholder="اكتبي الكلمة هنا..." autocomplete="off">
@@ -223,7 +225,7 @@
         <div id="page3" class="page">
             <div class="decorations">🎉 🎀 🎈 🎀 🎉</div>
             <h1 class="arabic-title" style="font-size: 28px;">يا جميلة نوفمبر ❤️</h1>
-            <img src="https://images.vexels.com/media/users/3/242277/raw/2816507421ce8e3f9a7442ca718b5329-hello-kitty-cute-face-graphic.jpg" alt="Hello Kitty Party" class="kitty-img" style="width: 100px; height: 100px; margin: 5px 0;">
+            <img src="kitty.png" alt="Hello Kitty Party" class="kitty-img" style="width: 100px; height: 100px; margin: 5px 0;">
             
             <div class="wishes-card">
                 <p style="font-size: 18px; font-weight: bold; color: var(--pink-dark); margin-bottom: 8px; text-align: center;">
@@ -294,3 +296,22 @@
             });
             fire(0.2, {
                 spread: 60,
+                colors: ['#ffb6c1', '#ffffff', '#ff1493']
+            });
+            fire(0.35, {
+                spread: 100,
+                decay: 0.91,
+                scalar: 0.8,
+                colors: ['#ff75a0', '#ffffff']
+            });
+        }
+
+        // إمكانية الضغط على Enter في حقل الإدخال
+        document.getElementById('answerInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkAnswer();
+            }
+        });
+    </script>
+</body>
+</html>
