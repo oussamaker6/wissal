@@ -69,20 +69,21 @@
         /* زينة هيلو كيتي والورود */
         .decorations {
             font-size: 24px;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .kitty-img {
             width: 130px;
-            height: auto;
-            margin: 15px 0;
-            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
+            height: 130px;
+            object-fit: contain;
+            margin: 10px 0;
+            filter: drop-shadow(0 5px 8px rgba(255, 117, 160, 0.3));
             animation: float 3s ease-in-out infinite;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
         }
 
         /* الخط العربي الفاخر */
@@ -91,7 +92,7 @@
             font-size: 38px;
             font-weight: 700;
             color: var(--pink-dark);
-            margin: 15px 0;
+            margin: 10px 0;
             text-shadow: 2px 2px 4px rgba(255, 182, 193, 0.5);
         }
 
@@ -107,7 +108,7 @@
             cursor: pointer;
             box-shadow: 0 6px 0 #d81b60, 0 10px 15px rgba(0,0,0,0.15);
             transition: all 0.1s ease;
-            margin-top: 20px;
+            margin-top: 15px;
             outline: none;
             display: inline-flex;
             align-items: center;
@@ -126,14 +127,14 @@
         /* مدخلات اللغز */
         .puzzle-box {
             width: 100%;
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
         .question-text {
             font-size: 19px;
             font-weight: 600;
             color: #444;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             line-height: 1.6;
         }
 
@@ -146,7 +147,7 @@
             text-align: center;
             outline: none;
             transition: border-color 0.3s;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .puzzle-input:focus {
@@ -175,12 +176,13 @@
             background: #fff;
             border: 2px dashed var(--pink-light);
             border-radius: 20px;
-            padding: 20px;
-            margin-top: 15px;
+            padding: 18px;
+            margin-top: 10px;
             line-height: 1.8;
-            font-size: 17px;
+            font-size: 16px;
             color: #444;
             box-shadow: inset 0 0 10px rgba(255, 182, 193, 0.2);
+            text-align: right;
         }
 
         .highlight {
@@ -195,7 +197,7 @@
         <!-- الصفحة الأولى -->
         <div id="page1" class="page active">
             <div class="decorations">🌸 🎀 🌹 🎀 🌸</div>
-            <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Hello_kitty_character_image.png" alt="Hello Kitty" class="kitty-img">
+            <img src="https://images.vexels.com/media/users/3/242277/raw/2816507421ce8e3f9a7442ca718b5329-hello-kitty-cute-face-graphic.jpg" alt="Hello Kitty" class="kitty-img" onerror="this.src='https://i.ibb.co/6P6Xg4V/hello-kitty.png'">
             <h1 class="arabic-title">جميلة نوفمبر</h1>
             <p style="color: #666; font-size: 15px;">عالم صغير من الورد والأحلام 💗</p>
             <button class="btn-3d" onclick="goToPage(2)">
@@ -206,7 +208,7 @@
         <!-- الصفحة الثانية: اللغز -->
         <div id="page2" class="page">
             <div class="decorations">🎀 ❓ 🎀</div>
-            <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Hello_kitty_character_image.png" alt="Hello Kitty Question" class="kitty-img">
+            <img src="https://images.vexels.com/media/users/3/242277/raw/2816507421ce8e3f9a7442ca718b5329-hello-kitty-cute-face-graphic.jpg" alt="Hello Kitty Question" class="kitty-img">
             <div class="puzzle-box" id="puzzleContainer">
                 <p class="question-text">واش هيا الكلمة لي معروف عليا نقولهالك ؟ 🎀</p>
                 <input type="text" id="answerInput" class="puzzle-input" placeholder="اكتبي الكلمة هنا..." autocomplete="off">
@@ -220,21 +222,21 @@
         <!-- الصفحة الثالثة: التهنئة والمفاجأة -->
         <div id="page3" class="page">
             <div class="decorations">🎉 🎀 🎈 🎀 🎉</div>
-            <h1 class="arabic-title" style="font-size: 30px;">يا جميلة نوفمبر ❤️</h1>
-            <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Hello_kitty_character_image.png" alt="Hello Kitty Party" class="kitty-img">
+            <h1 class="arabic-title" style="font-size: 28px;">يا جميلة نوفمبر ❤️</h1>
+            <img src="https://images.vexels.com/media/users/3/242277/raw/2816507421ce8e3f9a7442ca718b5329-hello-kitty-cute-face-graphic.jpg" alt="Hello Kitty Party" class="kitty-img" style="width: 100px; height: 100px; margin: 5px 0;">
             
             <div class="wishes-card">
-                <p style="font-size: 20px; font-weight: bold; color: var(--pink-dark); margin-bottom: 10px;">
+                <p style="font-size: 18px; font-weight: bold; color: var(--pink-dark); margin-bottom: 8px; text-align: center;">
                     Joyeux anniversaire kekoutaaa 🫶🏻
                 </p>
-                <p>
+                <p style="margin-bottom: 8px;">
                     ان شاء الله يطول في عمرك و يعطيك فرحة مور فرحة و الضحكة متفارقش وجهك و يوفقك في حياتك ✨
                 </p>
-                <hr style="border: none; border-top: 1px dashed var(--pink-light); margin: 12px 0;">
+                <hr style="border: none; border-top: 1px dashed var(--pink-light); margin: 8px 0;">
                 <p>
                     بصح كاينة حاجة 🙂<br>
                     كاين رصاصة اول نوفمبر و كاين نتي قنبلة نوفمبر 😂🫶🏻<br>
-                    <span class="highlight" style="font-size: 19px;">يا الكتكووووتة 🎀</span>
+                    <span class="highlight" style="font-size: 18px;">يا الكتكووووتة 🎀</span>
                 </p>
             </div>
         </div>
@@ -272,7 +274,7 @@
             }
         }
 
-        // إطلاق الألعاب النارية في الصفحة 3 (بدون أصوات)
+        // إطلاق الألعاب النارية في الصفحة 3
         function triggerCelebration() {
             const count = 200;
             const defaults = {
@@ -292,22 +294,3 @@
             });
             fire(0.2, {
                 spread: 60,
-                colors: ['#ffb6c1', '#ffffff', '#ff1493']
-            });
-            fire(0.35, {
-                spread: 100,
-                decay: 0.91,
-                scalar: 0.8,
-                colors: ['#ff75a0', '#ffffff']
-            });
-        }
-
-        // إمكانية الضغط على Enter في حقل الإدخال
-        document.getElementById('answerInput').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                checkAnswer();
-            }
-        });
-    </script>
-</body>
-</html>
