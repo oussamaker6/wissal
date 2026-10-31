@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جميلة نوفمبر 🎀</title>
+    <!-- خط عربي جميل من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- مكتبة Confetti للألعاب النارية -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --pink-main: #ff75a0;
+            --pink-light: #ffb6c1;
+            --pink-bg: #fff0f5;
+            --pink-dark: #d81b60;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--pink-bg);
+            background-image: radial-gradient(#ffc0cb 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(255, 117, 160, 0.25);
+            border: 4px solid var(--pink-light);
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .page {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .page.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* زينة هيلو كيتي والورود */
+        .decorations {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .kitty-img {
+            width: 130px;
+            height: auto;
+            margin: 15px 0;
+            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* الخط العربي الفاخر */
+        .arabic-title {
+            font-family: 'Amiri', serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--pink-dark);
+            margin: 15px 0;
+            text-shadow: 2px 2px 4px rgba(255, 182, 193, 0.5);
+        }
+
+        /* زر أبعاد 3D */
+        .btn-3d {
+            background-color: var(--pink-main);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #d81b60, 0 10px 15px rgba(0,0,0,0.15);
+            transition: all 0.1s ease;
+            margin-top: 20px;
+            outline: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-3d:hover {
+            background-color: #ff5c8d;
+        }
+
+        .btn-3d:active {
+            box-shadow: 0 2px 0 #d81b60, 0 4px 6px rgba(0,0,0,0.15);
+            transform: translateY(4px);
+        }
+
+        /* مدخلات اللغز */
+        .puzzle-box {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .question-text {
+            font-size: 19px;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .puzzle-input {
+            width: 80%;
+            padding: 12px 20px;
+            font-size: 18px;
+            border: 2px solid var(--pink-light);
+            border-radius: 25px;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .puzzle-input:focus {
+            border-color: var(--pink-main);
+        }
+
+        .error-msg {
+            color: #e91e63;
+            font-size: 14px;
+            margin-top: 5px;
+            min-height: 20px;
+        }
+
+        .shake {
+            animation: shake 0.4s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
+        }
+
+        /* الرسالة والتهنئة في الصفحة الأخيرة */
+        .wishes-card {
+            background: #fff;
+            border: 2px dashed var(--pink-light);
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 15px;
+            line-height: 1.8;
+            font-size: 17px;
+            color: #444;
+            box-shadow: inset 0 0 10px rgba(255, 182, 193, 0.2);
+        }
+
+        .highlight {
+            color: var(--pink-dark);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- الصفحة الأولى -->
+        <div id="page1" class="page active">
+            <div class="decorations">🌸 🎀 🌹 🎀 🌸</div>
+            <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Hello_kitty_character_image.png" alt="Hello Kitty" class="kitty-img">
+            <h1 class="arabic-title">جميلة نوفمبر</h1>
+            <p style="color: #666; font-size: 15px;">عالم صغير من الورد والأحلام 💗</p>
+            <button class="btn-3d" onclick="goToPage(2)">
+                إضغطي هنا للبدء ✨
+            </button>
+        </div>
+
+        <!-- الصفحة الثانية: اللغز -->
+        <div id="page2" class="page">
+            <div class="decorations">🎀 ❓ 🎀</div>
+            <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Hello_kitty_character_image.png" alt="Hello Kitty Question" class="kitty-img">
+            <div class="puzzle-box" id="puzzleContainer">
+                <p class="question-text">واش هيا الكلمة لي معروف عليا نقولهالك ؟ 🎀</p>
+                <input type="text" id="answerInput" class="puzzle-input" placeholder="اكتبي الكلمة هنا..." autocomplete="off">
+                <div id="errorMsg" class="error-msg"></div>
+            </div>
+            <button class="btn-3d" onclick="checkAnswer()">
+                تأكيد الإجابة 💖
+            </button>
+        </div>
+
+        <!-- الصفحة الثالثة: التهنئة والمفاجأة -->
+        <div id="page3" class="page">
+            <div class="decorations">🎉 🎀 🎈 🎀 🎉</div>
+            <h1 class="arabic-title" style="font-size: 30px;">يا جميلة نوفمبر ❤️</h1>
+            <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Hello_kitty_character_image.png" alt="Hello Kitty Party" class="kitty-img">
+            
+            <div class="wishes-card">
+                <p style="font-size: 20px; font-weight: bold; color: var(--pink-dark); margin-bottom: 10px;">
+                    Joyeux anniversaire kekoutaaa 🫶🏻
+                </p>
+                <p>
+                    ان شاء الله يطول في عمرك و يعطيك فرحة مور فرحة و الضحكة متفارقش وجهك و يوفقك في حياتك ✨
+                </p>
+                <hr style="border: none; border-top: 1px dashed var(--pink-light); margin: 12px 0;">
+                <p>
+                    بصح كاينة حاجة 🙂<br>
+                    كاين رصاصة اول نوفمبر و كاين نتي قنبلة نوفمبر 😂🫶🏻<br>
+                    <span class="highlight" style="font-size: 19px;">يا الكتكووووتة 🎀</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // التنقل بين الصفحات
+        function goToPage(pageNum) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById('page' + pageNum).classList.add('active');
+
+            if (pageNum === 3) {
+                triggerCelebration();
+            }
+        }
+
+        // التحقق من إجابة اللغز
+        function checkAnswer() {
+            const input = document.getElementById('answerInput').value.trim().toLowerCase();
+            const container = document.getElementById('puzzleContainer');
+            const errorMsg = document.getElementById('errorMsg');
+
+            // قبول الكلمة بالتاء المربوطة أو الهاء (كتكوتة / كتكوته)
+            if (input === 'كتكوتة' || input === 'كتكوته') {
+                errorMsg.innerText = '';
+                goToPage(3);
+            } else {
+                container.classList.add('shake');
+                errorMsg.innerText = 'لا لا جربي تفكري مليح! 🙈';
+                setTimeout(() => {
+                    container.classList.remove('shake');
+                }, 400);
+            }
+        }
+
+        // إطلاق الألعاب النارية في الصفحة 3 (بدون أصوات)
+        function triggerCelebration() {
+            const count = 200;
+            const defaults = {
+                origin: { y: 0.7 }
+            };
+
+            function fire(particleRatio, opts) {
+                confetti(Object.assign({}, defaults, opts, {
+                    particleCount: Math.floor(count * particleRatio)
+                }));
+            }
+
+            fire(0.25, {
+                spread: 26,
+                startVelocity: 55,
+                colors: ['#ff75a0', '#ffffff']
+            });
+            fire(0.2, {
+                spread: 60,
+                colors: ['#ffb6c1', '#ffffff', '#ff1493']
+            });
+            fire(0.35, {
+                spread: 100,
+                decay: 0.91,
+                scalar: 0.8,
+                colors: ['#ff75a0', '#ffffff']
+            });
+        }
+
+        // إمكانية الضغط على Enter في حقل الإدخال
+        document.getElementById('answerInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkAnswer();
+            }
+        });
+    </script>
+</body>
+</html>
